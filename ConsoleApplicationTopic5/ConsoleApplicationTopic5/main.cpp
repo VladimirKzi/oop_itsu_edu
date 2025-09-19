@@ -5,6 +5,8 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <random>
+#include <ctime>
 
 using namespace std;
 
@@ -14,10 +16,16 @@ void blockA()
 	const int SIZE = 12;
 	vector<int> arr(SIZE);
 
-	arr = { -5, 3, 12, 15, -7, 15, 0, 4, -3, 8, 15, -2 };
+	mt19937 gen(static_cast<unsigned>(time(nullptr)));
+	uniform_int_distribution<int> dist(-15, 15);
+
+	//arr = { -5, 3, 12, 15, -7, 15, 0, 4, -3, 8, 15, -2 };
 
 	cout<<"\n\nArray: " << endl;
-	for (int v : arr) cout << v << " " << endl;
+	for (int i = 0; i < SIZE; ++i) {
+		arr[i] = dist(gen);
+		cout << arr[i] << " ";
+	}
 	cout << "\n\n";
 
 	int maxVal = arr[0];
@@ -45,8 +53,8 @@ void blockB()
 {
 	const int ROWS = 8;
 	const int COLS = 5;
-	
-	int arr[ROWS][COLS] = {
+
+	/*int arr[ROWS][COLS] = {
 		{10, 11, 12, 13, 14},
 		{15, 16, 17, 18, 19},
 		{20, 21, 22, 23, 24},
@@ -55,11 +63,15 @@ void blockB()
 		{30, 31, 32, 33, 34},
 		{35, 36, 37, 38, 39},
 		{91, 93, 95, 97, 99}
-	};
+	};*/
+	int arr[ROWS][COLS];
+	mt19937 gen(static_cast<unsigned>(time(nullptr)));
+	uniform_int_distribution<int> dist(10, 99);
 
 	cout << "\nMulti Array:\n";
 	for (int i = 0; i < ROWS; ++i) {
 		for (int j = 0; j < COLS; ++j) {
+			arr[i][j] = dist(gen);
 			cout << arr[i][j] << "\t";
 		}
 		cout << "\n";
@@ -98,4 +110,3 @@ int main()
 //   4. В окне "Список ошибок" можно просматривать ошибки.
 //   5. Последовательно выберите пункты меню "Проект" > "Добавить новый элемент", чтобы создать файлы кода, или "Проект" > "Добавить существующий элемент", чтобы добавить в проект существующие файлы кода.
 //   6. Чтобы снова открыть этот проект позже, выберите пункты меню "Файл" > "Открыть" > "Проект" и выберите SLN-файл.
-
