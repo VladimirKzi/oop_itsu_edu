@@ -1,0 +1,5 @@
+Samsung 47000 340 Samsung
+Indesit 52000 300 Indesit
+Bosch 75000 420 Bosch
+LG 8000 340 LG
+Dnipro 1200 100 DniproUA
